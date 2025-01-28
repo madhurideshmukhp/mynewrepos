@@ -1,0 +1,9 @@
+{
+	"name": "factoryaccount",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e55d1641-b823-4b4b-9954-43bca19ee131",
+		"tenantId": "441dc366-2988-4558-8827-718893181569"
+	}
+}
