@@ -130,7 +130,21 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": "/Shared/mynewrepos/git"
+								"notebookPath": "/Shared/mynewrepos/run",
+								"baseParameters": {
+									"container": {
+										"value": "@activity('Get Metadata1').output.childItems",
+										"type": "Expression"
+									},
+									"blob_path": {
+										"value": "@item().name",
+										"type": "Expression"
+									},
+									"delta_path": {
+										"value": "@item()",
+										"type": "Expression"
+									}
+								}
 							},
 							"linkedServiceName": {
 								"referenceName": "AzureDatabricksls",
