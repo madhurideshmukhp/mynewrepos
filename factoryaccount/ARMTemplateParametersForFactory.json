@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "factoryaccount"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStoragels_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStoragels_properties_typeProperties_url": {
+			"value": "https://adlsgen2account127.dfs.core.windows.net/"
+		},
+		"AzureDatabricksls_properties_typeProperties_existingClusterId": {
+			"value": "0128-144207-udbux4ig"
+		},
+		"keyVaultls_properties_typeProperties_baseUrl": {
+			"value": "https://kvs127.vault.azure.net/"
+		}
+	}
+}

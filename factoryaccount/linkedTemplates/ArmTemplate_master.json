@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "factoryaccount"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureDataLakeStoragels_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStoragels'"
+		},
+		"AzureDataLakeStoragels_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2account127.dfs.core.windows.net/"
+		},
+		"AzureDatabricksls_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0128-144207-udbux4ig"
+		},
+		"keyVaultls_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kvs127.vault.azure.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "factoryaccount_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureDataLakeStoragels_accountKey": {
+						"value": "[parameters('AzureDataLakeStoragels_accountKey')]"
+					},
+					"AzureDataLakeStoragels_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStoragels_properties_typeProperties_url')]"
+					},
+					"keyVaultls_properties_typeProperties_baseUrl": {
+						"value": "[parameters('keyVaultls_properties_typeProperties_baseUrl')]"
+					},
+					"AzureDatabricksls_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricksls_properties_typeProperties_existingClusterId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
