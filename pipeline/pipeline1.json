@@ -91,6 +91,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -129,13 +130,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": "/Shared/mynewrepos/git",
-								"baseParameters": {
-									"triggerBody()": {
-										"value": "@activity('Copy data1').output",
-										"type": "Expression"
-									}
-								}
+								"notebookPath": "/Shared/mynewrepos/git"
 							},
 							"linkedServiceName": {
 								"referenceName": "AzureDatabricksls",
